@@ -205,12 +205,28 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
 
     @Override
     public List<Paciente> obtenerPacientesEnEspera() {
-       return new ArrayList<>(); //Dummy return
+        List<Paciente> resultado = new ArrayList<>();
+
+        resultado.addAll(filaEmergencias);
+        resultado.addAll(filaRegular);
+        return resultado;
+       
     }
 
     @Override
     public List<Doctor> obtenerDoctoresDisponibles() {
-        return new ArrayList<>(); //Dummy return
+        List<Doctor> resultado = new ArrayList<>();
+
+            for (Empleados empleado : mapaEmpleados.values()){
+                if (empleado instanceof Doctor) {
+                    Doctor doctor = (Doctor) empleado;
+                
+                    if (doctor.isDisponible()){
+                        resultado.add(doctor);
+                    }
+                }
+            }
+            return resultado;
     }
 
     @Override
