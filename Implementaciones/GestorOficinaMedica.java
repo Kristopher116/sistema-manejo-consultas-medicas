@@ -183,8 +183,25 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
 
     @Override
     public List<Doctor> buscarDoctoresPorEspecialidad(String especialidad) {
+        List<Doctor> resultado = new ArrayList<>();
+
+        if (especialidad == null){
+            return resultado;
+        } 
+
+        for (Empleados empleado : mapaEmpleados.values()){
+            if (empleado instanceof Doctor){
+                Doctor doctor = (Doctor) empleado;
+
+                if (especialidad.equalsIgnoreCase(doctor.getEspecialidad())){
+                    resultado.add(doctor);
+
+            }
+        }
         return new ArrayList<>(); //Dummy return
     }
+    return resultado;
+}
 
     @Override
     public List<Paciente> obtenerPacientesEnEspera() {
