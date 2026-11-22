@@ -231,16 +231,28 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
 
     @Override
     public List<Citas> obtenerCitasPorFecha(String fechaHoy) {
-        return new ArrayList<>(); //Dummy return
+        List<Citas> resultado = new ArrayList<>();
+
+        if (fechaHoy == null){
+            return resultado;
+        }
+
+        for (Citas cita: mapaCitas.values()){
+            if (fechaHoy.equals(cita.getFecha())){
+                resultado.add(cita);
+            }
+        }
+
+        return resultado;
     }
 
     @Override
     public Paciente buscarPacientePorId(String idPaciente) {
-        return null; //Dummy return
+        return mapaPacientes.get(idPaciente);
     }
 
     @Override
     public Empleados buscarEmpleadoPorId(String idEmpleado) {
-        return null; //Dummy return
+        return mapaEmpleados.get(idEmpleado); 
     }
 }
