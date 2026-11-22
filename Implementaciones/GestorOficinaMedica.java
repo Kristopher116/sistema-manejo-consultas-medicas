@@ -172,7 +172,13 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
 
     @Override
     public List<VisitaMedica> obtenerHistorialPaciente(String idPaciente) {
-        return new ArrayList<>(); //Dummy return
+        LinkedList<VisitaMedica> historial = historiales.get(idPaciente);
+
+        if (historial == null){
+            return new ArrayList<>();
+        }
+        
+        return new ArrayList<>(historial);
     }
 
     @Override
