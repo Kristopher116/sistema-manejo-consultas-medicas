@@ -198,7 +198,6 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
 
             }
         }
-        return new ArrayList<>(); //Dummy return
     }
     return resultado;
 }
