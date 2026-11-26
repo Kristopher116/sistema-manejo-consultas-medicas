@@ -34,7 +34,7 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
         LinkedList<VisitaMedica> listaHistorial = new LinkedList<>();
         historiales.put(id, listaHistorial);
         
-        System.out.println("El paciente" + nombre + " con ID " + id + "ha sido registrado exitosamente");
+        System.out.println("El paciente " + nombre + " con ID " + id + " ha sido registrado exitosamente");
         
     }
 
@@ -48,7 +48,7 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
             Doctor doctor = new Doctor(nombre, edad, id, especialidad);
             mapaEmpleados.put(id, doctor);
             
-        	System.out.println("El doctor" + nombre + " con ID " + id + "ha sido registrado exitosamente");
+        	System.out.println("El doctor " + nombre + " con ID " + id + " ha sido registrado exitosamente");
             
         } 
         
@@ -57,7 +57,7 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
             Empleados empleado = new Empleados(nombre, edad, id, rol);
             mapaEmpleados.put(id, empleado);
             
-            System.out.println("El doctor" + nombre + " con ID " + id + "ha sido registrado exitosamente");
+            System.out.println("El empleado " + nombre + " con ID " + id + " ha sido registrado exitosamente");
             
         }
 
@@ -155,14 +155,14 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
         if (paciente.isEmergencia()) {
         
             filaEmergencias.add(paciente);
-            System.out.println("El paciente" + paciente.getNombre() + " ha sido añadido a fila de emergencias.");
+            System.out.println("El paciente " + paciente.getNombre() + " ha sido añadido a fila de emergencias.");
             
         } 
         
         else {
         
             filaRegular.add(paciente);
-            System.out.println("El paciente" + paciente.getNombre() + " ha sido añadido a fila regular.");
+            System.out.println("El paciente " + paciente.getNombre() + " ha sido añadido a fila regular.");
         }
     }
 

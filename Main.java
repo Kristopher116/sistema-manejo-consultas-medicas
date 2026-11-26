@@ -49,9 +49,10 @@ public class Main {
                     scanner.nextLine();
                     
                     //Determinar si es emergencia
-                    System.out.println("¿Es una emergencia? ");
+                    System.out.println("¿Es una emergencia?");
                     System.out.println("1. Sí");
                     System.out.println("2. No");
+                    System.out.println("Seleccione 1 ó 2 ");
                     int isEmergencia = scanner.nextInt();
                     scanner.nextLine();
                     
