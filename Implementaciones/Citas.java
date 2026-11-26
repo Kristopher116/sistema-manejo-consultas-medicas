@@ -43,13 +43,14 @@ public class Citas {
 
     @Override 
     public String toString() {
-        return "Cita{" +
-                "IdCita:" + IdCita + '\'' +
-                ", paciente:" + paciente.getNombre() +
-                ", doctor:" + doctor.getNombre() +
-                ", fecha:" + fecha + '\'' +
-                ", hora:" + hora + '\'' +
-                ", estado:" + estado + '\'' +
-                '}';
+        return "--------------------------"
+                + "\nCita" +
+                "\nIdCita:" + IdCita +
+                "\nPaciente:" + paciente.getNombre() +
+                "\nDoctor:" + doctor.getNombre() +
+                "\nFecha:" + fecha +
+                "\nHora:" + hora +
+                "\nEstado:" + estado +
+                "\n----------------------------";
     }
 }
