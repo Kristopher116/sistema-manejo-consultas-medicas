@@ -209,13 +209,27 @@ public class Main {
 
                 case 7:
                     System.out.print("ID de la cita en consulta (ej. CITA-1): ");
-                    String idCitaCompletada = scanner.nextLine();
-                    System.out.print("Signos vitales tomados por la enfermera: ");
-                    String signosVit = scanner.nextLine();
+                    String idVisita = scanner.nextLine();
+
+                    System.out.println("--- SIGNOS VITALES---");
+
+                    System.out.print("Presión arterial (ej. 120/80): ");
+                    String presion = scanner.nextLine();
+
+                    System.out.print("Pulso: ");
+                    String pulso = scanner.nextLine();
+
+                    System.out.print("Agudeza visual (ej. 20/20): ");
+                    String ojos = scanner.nextLine();
+
+                    String signosVit = "Presión arterial: " + presion +
+                    "\nPulso: " + pulso + "lpm" + 
+                    "\nAgudeza visual: " + ojos;
+                    
                     System.out.print("Diagnóstico del médico: ");
                     String diagnostico = scanner.nextLine();
 
-                    sistema.registrarVisitaMedica(idCitaCompletada, signosVit, diagnostico);
+                    sistema.registrarVisitaMedica(idVisita, signosVit, diagnostico);
                     break;
 
                 case 8:

@@ -14,8 +14,8 @@ médico de cada paciente.
 
 3. Instalación
 > Para poder utilizar el programa deberá 
-4. Uso
 
+4. Uso
 > Ejemplos o instrucciones de uso del proyecto.
 > Incluya fragmentos de código o capturas de pantalla si es útil.
 
