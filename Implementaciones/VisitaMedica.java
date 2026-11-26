@@ -21,9 +21,10 @@ public VisitaMedica(String diagnostico, String nombreDoctor) {
 
     @Override
     public String toString() {
-        return "VisitaMedica{" +
-                ", diagnostico:" + diagnostico + '\'' +
-                ", NombreDoctor:" + NombreDoctor + '\'' +
-                '}';
+        return "--------------------" +
+                "\nVisitaMedica" +
+                "\nDiagnostico: " + diagnostico +
+                "\nNombre Doctor: " + NombreDoctor +
+                "\n-------------------";
     }
 }
