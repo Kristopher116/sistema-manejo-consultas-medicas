@@ -27,7 +27,7 @@ public class Main {
             System.out.println("3.  Agendar una cita");
             System.out.println("4.  Cancelar una cita");
             System.out.println("5.  Añadir paciente a la fila de espera");
-            System.out.println("6.  Llamar/Atender al siguiente paciente (Prioritiza emergencias)");
+            System.out.println("6.  Iniciar consulta (Prioriza emergencias)");
             System.out.println("7.  Registrar visita médica (Signos vitales y Diagnóstico)");
             System.out.println("8.  Mostrar historial clínico de un paciente");
             System.out.println("9.  Buscar médico por especialidad");
@@ -42,7 +42,7 @@ public class Main {
 
             switch (opcion) {
                 case 1: //Resitrar Paciente
-                    System.out.print("Nombre del paciente: ");
+                    System.out.print("Nombre y primer apellido del paciente: ");
                     String nombrePaciente = scanner.nextLine();
                     System.out.print("Edad: ");
                     int edadPaciente = scanner.nextInt();
@@ -69,26 +69,73 @@ public class Main {
                     }
                     
                     sistema.registrarPaciente(nombrePaciente, edadPaciente, emergencia);
-                    System.out.println("Se ha registrado exitosamente");
+                    
                     break;
 
                 case 2: //Registrar empleado
-                    System.out.print("Nombre del empleado: ");
+                    System.out.print("Nombre y apellido del empleado: ");
                     String nombreEmpleado = scanner.nextLine();
+
                     System.out.print("Edad: ");
                     int edadEmpleado = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.print("¿Cuál es su rol? (Secretaria / Enfermera / Doctor):  ");
-                    String rol = scanner.nextLine();
-                    String especialidad = null;
 
-                    if(rol.equalsIgnoreCase("Doctor")){
-                        System.out.print("¿Cuál es su especialidad? (Oftalmólogo general / Oftalmólogo pediátrico / Neurooftalmólogo / Retinólogo): ");
-                        especialidad = scanner.nextLine();
+                    System.out.println("Selecciona el rol: ");
+                    System.out.println("1. Secretaria/o");
+                    System.out.println("2. Enfermera/o");
+                    System.out.println("3. Doctor/a");
+
+                    int opcionRol = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String rol;
+                    if (opcionRol == 1){
+                        rol = "Secretaria/o";
+                    }
+                    else if (opcionRol == 2){
+                        rol = "Enfermera/o";
+                    }
+                    else if (opcionRol == 3){
+                        rol = "Doctor";
+                    }
+                    else {
+                        System.out.println("Opción inválida");
+                        break;
                     }
 
+                    String especialidad = null;
+                    if (rol.equals("Doctor")){
+                        System.out.println("Selecciona especialidad: ");
+                        System.out.println("1. Oftalmólogo general");
+                        System.out.println("2. Oftalmólogo pediátrico");
+                        System.out.println("3. Neurooftalmólogo: ");
+                        System.out.println("4. Retinólogo: ");
+
+                        int opcionEspecialidad = scanner.nextInt();
+                        scanner.nextLine();
+                        
+                        
+                        if (opcionEspecialidad == 1){
+                            especialidad = "Oftalmólogo general";
+                        }
+                        else if (opcionEspecialidad == 2){
+                            especialidad = "Oftalmólogo pediátrico";
+                        }
+                        else if (opcionEspecialidad == 3){
+                            especialidad = "Neurooftalmólogo";
+                        }
+                        else if (opcionEspecialidad == 4){
+                            especialidad = "Retinólogo";
+                        }
+                        else{
+                            System.out.println("Opción inválida");
+                            break;
+                        }
+                    }
+                    
+
                     sistema.registrarEmpleado(nombreEmpleado, edadEmpleado, rol, especialidad);
-                    System.out.println("Se ha registrado exitosamente");
+                    
                     break;
 
                 case 3: //Agendar Cita
@@ -105,7 +152,10 @@ public class Main {
                     System.out.print("Hora (ej. 1-12): ");
                     int horas = scanner.nextInt();
                     System.out.print("Minutos (00 - 59): ");
-                    String minuto = scanner.nextLine();
+                    System.out.println("Minutos (00 - 59): ");
+                    int minuto = scanner.nextInt();
+
+                    System.out.println("Selecciona el horario:");
                     System.out.println("1. AM");
                     System.out.println("2. PM");
                     int horario = scanner.nextInt();
@@ -123,41 +173,42 @@ public class Main {
                         break;
                     }
 
-                    String fecha = mes + "/" + día + "/" + año;
-                    String hora = horas + ":" + minuto + " " + periodo;
+                    String fecha = día + "/" + mes + "/" + año;
+
+                    String hora;
+
+                    if(minuto < 10){
+                        hora = horas + ":0" + minuto + " " + periodo;
+                    }
+                    else{
+                        hora = horas + ":" + minuto + " " + periodo;
+                    }
 
                     sistema.agendarCita(idPaciente, idDoctor, fecha, hora);
-                    System.out.println("La cita ha sido agendada");
+            
                     break;
 
                 case 4:
                     System.out.print("ID de la Cita a cancelar (ej. CITA-1): ");
                     String idCita = scanner.nextLine();
                     sistema.cancelarCita(idCita);
-                    System.out.println("La cita ha sido cancelada");
                     break;
 
                 case 5:
                     System.out.print("ID del Paciente que llegó a la oficina (ej. PAC-1): ");
                     String idPacienteFila = scanner.nextLine();
                     sistema.agregarAFilaDeEspera(idPacienteFila);
-                    System.out.println("El paciente ha sido añadido a la fila de espera");
                     break;
 
                 case 6:
-                    Paciente siguiente = sistema.obtenerSiguientePaciente();
+                    System.out.println("ID de la cita para iniciar consulta: ");
+                    String idConsulta = scanner.nextLine();
 
-                    if(siguiente != null){
-                        System.out.print("-> Pasando a consulta a: " + siguiente.getNombre() + " (ID: " + siguiente.getId() + " | Emergencia: " + siguiente.isEmergencia() + ")");
-                    }
-
-                    else{
-                        System.out.print("No hay pacientes en la fila de espera.");
-                    }
+                    sistema.iniciarConsulta(idConsulta);
                     break;
 
                 case 7:
-                    System.out.print("ID de la Cita completada (ej. CITA-1): ");
+                    System.out.print("ID de la cita en consulta (ej. CITA-1): ");
                     String idCitaCompletada = scanner.nextLine();
                     System.out.print("Signos vitales tomados por la enfermera: ");
                     String signosVit = scanner.nextLine();
@@ -186,8 +237,33 @@ public class Main {
                     break;
 
                 case 9:
-                    System.out.print("Ingrese la especialidad que este buscando: ");
-                    String espBuscar = scanner.nextLine();
+                    System.out.println("Selecciona especialidad: ");
+                    System.out.println("1. Oftalmólogo general");
+                    System.out.println("2. Oftalmólogo pediátrico");
+                    System.out.println("3. Neurooftalmólogo: ");
+                    System.out.println("4. Retinólogo: ");
+
+                    int opcionBuscar = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String espBuscar;
+                        if (opcionBuscar == 1){
+                            espBuscar = "Oftalmólogo general";
+                        }
+                        else if (opcionBuscar == 2){
+                            espBuscar = "Oftalmólogo pediátrico";
+                        }
+                        else if (opcionBuscar == 3){
+                            espBuscar = "Neurooftalmólogo";
+                        }
+                        else if (opcionBuscar == 4){
+                            espBuscar = "Retinólogo";
+                        }
+                        else {
+                            System.out.println("Opción inválida. ");
+                            break;
+                        }
+
                        List<Doctor> doctoresEsp = sistema.buscarDoctoresPorEspecialidad(espBuscar);
                     
                     if(doctoresEsp.isEmpty()){
