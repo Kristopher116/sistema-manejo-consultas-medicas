@@ -72,6 +72,25 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
         if (paciente != null && empleado instanceof Doctor) {
         
             Doctor doctor = (Doctor) empleado;
+
+            for (Citas cita: mapaCitas.values()){
+                if (!"Cancelada".equalsIgnoreCase(cita.getEstado())){
+
+                    if (fecha.equals(cita.getFecha()) && hora.equals(cita.getHora())){
+                        
+                        if (idDoctor.equals(cita.getDoctor().getId())){
+                            System.out.println("El doctor ya tiene una cita agendada a esa hora.");
+                            return;
+                        }
+
+                        if (idPaciente.equals(cita.getPaciente().getId())){
+                            System.out.println("El paciente ya tiene una cita en ese horario.");
+                            return;
+                        }
+                    }
+                }
+            }
+
             String idCita = "CITA-" + id_Citas;
             id_Citas++;
             
@@ -97,6 +116,21 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
             return;
         } 
         
+        if ("Completada".equalsIgnoreCase(cita.getEstado())){
+            System.out.println("No se puede cancelar una cita completada.");
+            return;
+        }
+
+        if ("Cancelada".equalsIgnoreCase(cita.getEstado())){
+            System.out.println("Esta cita ya está cancelada.");
+            return;
+        }
+
+        if("En Consulta".equalsIgnoreCase(cita.getEstado())){
+            System.out.println("No se puede cancelar una consulta en curso.");
+            return;
+        }
+
         cita.setEstado("Cancelada");
         System.out.println("La cita ha sido cancelada");
      
@@ -110,6 +144,11 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
         
         if (paciente == null) {
             System.out.println("El paciente no esta registrado.");
+            return;
+        }
+
+        if (filaRegular.contains(paciente) || filaEmergencias.contains(paciente)) {
+            System.out.print("El paciente ya está en la fila de espera. ");
             return;
         }
         
@@ -150,6 +189,21 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
             return;
         }
         
+        if ("Cancelada".equalsIgnoreCase(cita.getEstado())){
+            System.out.println("No se puede registrar una visita de una cita cancelada.");
+            return;
+        }
+
+        if("Completada".equalsIgnoreCase(cita.getEstado())){
+            System.out.println("Esta cita ya tiene una visita registrada.");
+            return;
+        }
+
+        if(!"En Consulta".equalsIgnoreCase(cita.getEstado())){
+            System.out.println("Primero debes iniciar la consulta con la opción 6.");
+            return;
+        }
+
         Paciente paciente = cita.getPaciente();
         Doctor doctor = cita.getDoctor();
         
@@ -254,5 +308,53 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
     @Override
     public Empleados buscarEmpleadoPorId(String idEmpleado) {
         return mapaEmpleados.get(idEmpleado); 
+    }
+
+    @Override 
+    public void iniciarConsulta(String idCita){
+        Citas cita = mapaCitas.get(idCita);
+
+        if (cita == null){
+            System.out.println("La cita no existe.");
+            return;
+        }
+
+        if (!"Pendiente".equalsIgnoreCase(cita.getEstado()) && !"Confirmada".equalsIgnoreCase(cita.getEstado())){
+            System.out.println("La cita no está pendiente de atención.");
+            return;
+        }
+
+        Doctor doctor = cita.getDoctor();
+        Paciente paciente = cita.getPaciente();
+
+        if (!doctor.isDisponible()){
+            System.out.println("El doctor está ocupado.");
+            return;
+        }
+
+        Paciente siguiente;
+
+        if (!filaEmergencias.isEmpty()){
+            siguiente = filaEmergencias.peek();
+        }
+
+        else {
+            siguiente = filaRegular.peek();
+        }
+
+        if (siguiente == null || !siguiente.getId().equals(paciente.getId())){
+            System.out.println("El paciente debe estar al frente de la fila.");
+            return;
+        }
+
+        obtenerSiguientePaciente();
+
+        doctor.setDisponible(false);
+        cita.setEstado("En Consulta");
+
+        System.out.println("Paciente: " + paciente.getNombre());
+        System.out.println("Doctor asignado: " + doctor.getNombre());
+        System.out.println("Consulta iniciada. ");
+
     }
 }

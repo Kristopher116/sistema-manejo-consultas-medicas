@@ -15,6 +15,7 @@ public interface SistemaOficinaMedica {
     void agregarAFilaDeEspera(String idPaciente);
     Paciente obtenerSiguientePaciente();
     void registrarVisitaMedica(String idCita, String signosVitales, String diagnostico);
+    void iniciarConsulta(String idCita);
 
     List<VisitaMedica> obtenerHistorialPaciente(String idPaciente);
     List<Doctor> buscarDoctoresPorEspecialidad(String especialidad);
