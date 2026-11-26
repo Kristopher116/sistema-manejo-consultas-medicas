@@ -22,7 +22,7 @@ public class Main {
 
         while(!salir){
             System.out.println("========= Menú Principal ===========");
-            System.out.println("1. Registrar nuevo paciente");
+            System.out.println("1.  Registrar nuevo paciente");
             System.out.println("2.  Registrar nuevo empleado (Secretaria/Enfermera/Doctor)");
             System.out.println("3.  Agendar una cita");
             System.out.println("4.  Cancelar una cita");
@@ -41,20 +41,38 @@ public class Main {
             scanner.nextLine();
 
             switch (opcion) {
-                case 1:
+                case 1: //Resitrar Paciente
                     System.out.print("Nombre del paciente: ");
                     String nombrePaciente = scanner.nextLine();
                     System.out.print("Edad: ");
                     int edadPaciente = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.print("¿Es una emergencia? Escriba true ó false:  ");
-                    boolean emergencia = scanner.nextBoolean();
+                    
+                    //Determinar si es emergencia
+                    System.out.println("¿Es una emergencia? ");
+                    System.out.println("1. Sí");
+                    System.out.println("2. No");
+                    int isEmergencia = scanner.nextInt();
                     scanner.nextLine();
+                    
+                    boolean emergencia;
+
+                    if (isEmergencia == 1){
+                        emergencia = true;
+                    }
+                    else if (isEmergencia == 2) {
+                        emergencia = false;
+                    }
+                    else{
+                        System.out.println("Opción inválida.");
+                        break;
+                    }
+                    
                     sistema.registrarPaciente(nombrePaciente, edadPaciente, emergencia);
                     System.out.println("Se ha registrado exitosamente");
                     break;
 
-                case 2:
+                case 2: //Registrar empleado
                     System.out.print("Nombre del empleado: ");
                     String nombreEmpleado = scanner.nextLine();
                     System.out.print("Edad: ");
@@ -73,15 +91,40 @@ public class Main {
                     System.out.println("Se ha registrado exitosamente");
                     break;
 
-                case 3:
+                case 3: //Agendar Cita
                     System.out.print("ID del Paciente (ej. PAC-1): ");
                     String idPaciente = scanner.nextLine();
                     System.out.print("ID del Doctor (ej. EMP-1): ");
                     String idDoctor = scanner.nextLine();
-                    System.out.print("Fecha (día/mes/año): ");
-                    String fecha = scanner.nextLine();
-                    System.out.print("Hora (ej. 10:30 AM): ");
-                    String hora = scanner.nextLine();
+                    System.out.print("Mes (ej. 1 - 12): ");
+                    int mes = scanner.nextInt();
+                    System.out.print("Día (ej. 1-31):" );
+                    int día = scanner.nextInt();
+                    System.out.print("Año (ej. 2026): ");
+                    int año = scanner.nextInt();
+                    System.out.print("Hora (ej. 1-12): ");
+                    int horas = scanner.nextInt();
+                    System.out.print("Minutos (00 - 59): ");
+                    String minuto = scanner.nextLine();
+                    System.out.println("1. AM");
+                    System.out.println("2. PM");
+                    int horario = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String periodo;
+                    if (horario == 1){
+                        periodo = "AM";
+                    }
+                    else if (horario == 2){
+                        periodo = "PM";
+                    }
+                    else {
+                        System.out.println("Opción inválida.");
+                        break;
+                    }
+
+                    String fecha = mes + "/" + día + "/" + año;
+                    String hora = horas + ":" + minuto + " " + periodo;
 
                     sistema.agendarCita(idPaciente, idDoctor, fecha, hora);
                     System.out.println("La cita ha sido agendada");

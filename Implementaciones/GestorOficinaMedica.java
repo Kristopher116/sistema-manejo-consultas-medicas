@@ -91,9 +91,10 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
     public void cancelarCita(String idCita) {
         Citas cita = mapaCitas.get(idCita);
         
-        if (cita != null) {
+        if (cita == null) {
         
             System.out.println("La cita " + idCita + " no existe");
+            return;
         } 
         
         cita.setEstado("Cancelada");
