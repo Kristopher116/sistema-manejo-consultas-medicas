@@ -41,6 +41,7 @@ public class Main {
             scanner.nextLine();
 
             switch (opcion) {
+
                 case 1: //Resitrar Paciente
                     System.out.print("Nombre y primer apellido del paciente: ");
                     String nombrePaciente = scanner.nextLine();
@@ -153,7 +154,6 @@ public class Main {
                     System.out.print("Hora (ej. 1-12): ");
                     int horas = scanner.nextInt();
                     System.out.print("Minutos (00 - 59): ");
-                    System.out.println("Minutos (00 - 59): ");
                     int minuto = scanner.nextInt();
 
                     System.out.println("Selecciona el horario:");
