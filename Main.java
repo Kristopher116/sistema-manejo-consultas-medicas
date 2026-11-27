@@ -39,11 +39,10 @@ public class Main {
                 System.out.println("0.  Salir");
                 System.out.println("Ingrese un número para elegir la opción deseada: ");
 
-                int opcion = scanner.nextInt();
-                scanner.nextLine();
+                String opcion = scanner.nextLine().trim();
 
                 switch (opcion) {
-                    case 1: //Resitrar Paciente
+                    case "1": //Resitrar Paciente
                         System.out.print("Nombre y primer apellido del paciente: ");
                         String nombrePaciente = scanner.nextLine();
                         System.out.print("Edad: ");
@@ -75,7 +74,7 @@ public class Main {
                         
                         break;
 
-                    case 2: //Registrar empleado
+                    case "2": //Registrar empleado
                         System.out.print("Nombre y apellido del empleado: ");
                         String nombreEmpleado = scanner.nextLine();
 
@@ -141,7 +140,7 @@ public class Main {
                         
                         break;
 
-                    case 3: //Agendar Cita
+                    case "3": //Agendar Cita
                         System.out.print("ID del Paciente (ej. PAC-1): ");
                         String idPaciente = scanner.nextLine();
                         System.out.print("ID del Doctor (ej. EMP-1): ");
@@ -191,26 +190,26 @@ public class Main {
                 
                         break;
 
-                    case 4:
+                    case "4":
                         System.out.print("ID de la Cita a cancelar (ej. CITA-1): ");
                         String idCita = scanner.nextLine();
                         sistema.cancelarCita(idCita);
                         break;
 
-                    case 5:
+                    case "5":
                         System.out.print("ID del Paciente que llegó a la oficina (ej. PAC-1): ");
                         String idPacienteFila = scanner.nextLine();
                         sistema.agregarAFilaDeEspera(idPacienteFila);
                         break;
 
-                    case 6:
+                    case "6":
                         System.out.println("ID de la cita para iniciar consulta: ");
                         String idConsulta = scanner.nextLine();
 
                         sistema.iniciarConsulta(idConsulta);
                         break;
 
-                    case 7:
+                    case "7":
                         System.out.print("ID de la cita en consulta (ej. CITA-1): ");
                         String idVisita = scanner.nextLine();
 
@@ -235,7 +234,7 @@ public class Main {
                         sistema.registrarVisitaMedica(idVisita, signosVit, diagnostico);
                         break;
 
-                    case 8:
+                    case "8":
                         System.out.println("ID del Paciente (ej. PAC-1): ");
                         String idHist = scanner.nextLine();
                         List<VisitaMedica> historial = sistema.obtenerHistorialPaciente(idHist);
@@ -253,7 +252,7 @@ public class Main {
                         }
                         break;
 
-                    case 9:
+                    case "9":
                         System.out.println("Selecciona especialidad: ");
                         System.out.println("1. Oftalmólogo general");
                         System.out.println("2. Oftalmólogo pediátrico");
@@ -294,7 +293,7 @@ public class Main {
                         }
                         break;
 
-                    case 10:
+                    case "10":
                         List<Paciente> enEspera = sistema.obtenerPacientesEnEspera();
                         
                         if(enEspera.isEmpty()){
@@ -310,7 +309,7 @@ public class Main {
                         }
                         break;
 
-                    case 11:
+                    case "11":
                         List<Doctor> disponibles = sistema.obtenerDoctoresDisponibles();
                         
                         if(disponibles.isEmpty()){
@@ -326,7 +325,7 @@ public class Main {
                         }
                         break;
 
-                    case 12:
+                    case "12":
                         System.out.print("Ingrese la fecha de hoy (día/mes/año): ");
                         String hoy = scanner.nextLine();
                         List<Citas> citasHoy = sistema.obtenerCitasPorFecha(hoy);
@@ -340,7 +339,7 @@ public class Main {
                         }
                         break;
 
-                    case 0:
+                    case "0":
                         salir = true;
                         System.out.println("Cerrando el sistema.");
                         break;
@@ -353,6 +352,7 @@ public class Main {
             catch(Exception e){
 
                 System.out.println("Entrada inválida");
+                scanner.nextLine();
             }
         }
 //Test case para ver si Paciente funciona correctamente
