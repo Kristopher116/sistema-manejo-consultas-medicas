@@ -63,6 +63,36 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
 
     }
 
+    @Override 
+    public void eliminarDoctor(String idDoctor){
+        Empleados empleado = mapaEmpleados.get(idDoctor);
+
+        if (!(empleado instanceof Doctor)){
+            System.out.println("No existe un doctor con ese ID.");
+            return;
+        }
+
+        Doctor doctor = (Doctor) empleado;
+
+        if(!doctor.isDisponible()){
+            System.out.println("No se puede eliminar, el doctor está ocupado.");
+            return;
+        }
+
+        for (Citas cita : mapaCitas.values()){
+            if(cita.getDoctor().getId().equals(idDoctor)){
+
+                if ("Pendiente".equalsIgnoreCase(cita.getEstado()) || "Confirmada".equalsIgnoreCase(cita.getEstado()) || "En Consulta".equalsIgnoreCase(cita.getEstado())){
+                    System.out.println("No se puede eliminar: tiene citas pendientes o en consulta.");
+                    return;
+                }
+            }
+        }
+
+        mapaEmpleados.remove(idDoctor);
+        System.out.println("Doctor eliminado: " + doctor.getNombre());
+    }
+
 
     @Override
     public void agendarCita(String idPaciente, String idDoctor, String fecha, String hora) {

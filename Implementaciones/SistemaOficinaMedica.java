@@ -8,6 +8,7 @@ public interface SistemaOficinaMedica {
 
     void registrarPaciente(String nombre, int edad, boolean esEmergencia); 
     void registrarEmpleado(String nombre, int edad, String rol, String especialidad);
+    void eliminarDoctor(String idDoctor);
 
     void agendarCita(String idPaciente, String idDoctor, String fecha, String hora);
     void cancelarCita(String idCita);

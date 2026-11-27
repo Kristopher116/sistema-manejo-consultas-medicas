@@ -36,6 +36,7 @@ public class Main {
                 System.out.println("10. Mostrar todos los pacientes en espera");
                 System.out.println("11. Mostrar médicos disponibles");
                 System.out.println("12. Mostrar citas de hoy");
+                System.out.println("13. Eliminar doctor de consulta");
                 System.out.println("0.  Salir");
                 System.out.println("Ingrese un número para elegir la opción deseada: ");
 
@@ -338,6 +339,14 @@ public class Main {
                             }
                         }
                         break;
+
+                    case "13": {
+                        System.out.print("ID del doctor que desea eliminar: ");
+                        String idDoctorEliminar = scanner.nextLine();
+
+                        sistema.eliminarDoctor(idDoctorEliminar);
+                        break;
+                    }
 
                     case "0":
                         salir = true;

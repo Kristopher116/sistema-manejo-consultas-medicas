@@ -48,6 +48,8 @@ A continuación una descripción de cada opción en el Menú:
     ![alt text](image-14.png)(PRESS CTRL+CLICK TO OPEN THE PICTURE)
     12. Mostrar citas de hoy: al seleccionar esta opción, el programa le pedirá que indique la fecha y luego mostrará todas las citas agendadas para ese día incluyendo: el ID de cada cita, el nombre del paciente, el doctor que lo atendió, la fecha, la hora de la cita y el estado de la cita (Pendiente, En Consulta, Completada).
     ![alt text](image-15.png)(PRESS CTRL+CLICK TO OPEN THE PICTURE)
+    13. Eliminar doctor de consulta: al seleccionar esta opción se eliminará a algún doctor registrado con la opción 2. Deberá indicar el ID de empleado del doctor que quiere eliminar.
+    ![alt text](image16.png)
     0. Salir: al seleccionar esta opción, el sistema se va a cerrar.
 
 5. Configuración (si es necesario)
