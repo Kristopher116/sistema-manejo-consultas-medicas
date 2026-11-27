@@ -8,7 +8,22 @@ El proyecto se trata de como se hace el manejo de consultas medicas
 El Sistema de Manejo de Consultas Médicas es un programa desarrollado en Java para administrar los pacientes, empleados y citas de un centro oftalmológico. Permite registrar pacientes y empleados, agendar y cancelar citas, y organizar la fila de espera por orden de llegada, dando prioridad a las emergencias. Además, facilita el inicio de consultas, el registro de signos vitales y diagnósticos, y la consulta del historial médico de cada paciente.
 
 3. Instalación
-> Para poder utilizar el programa deberá 
+ 
+    Prerrequisitos:
+    Antes de comenzar, debe tener instalado el Java Development Kit (JDK por sus siglas) que puede ser descargado en oracle.com. Para verificar si su dispositivo       lo tiene instalado:
+ 
+    1. Acceda a la terminal de su computadora (aplicación de Command Prompt en Windows ó Terminal en Mac).
+    2. Ingrese el comando "java -version" (si estará usando Visual Studio, se recomienda instalar el Extension Pack for Java).
+
+    Pasos para clonar y correr el programa:
+ 
+    1. Abra su IDE y ubique el menú de "View" en la parte superior a la izquierda.
+    2. Seleccione la opción de "Command Palette" (ó puede usar el atajo de Ctrl+Shift+P / Cmd+Shift+P).
+    3. En la barra de búsqueda escriba "Git: Clone" y presione Enter.
+    4. Copie el enlace que tiene del repositorio en este campo y presione Enter. 
+    5. Una vez el proyecto cargue en el IDE, abra el archivo Main.java.
+    6. Localice el ícono triangular arriba en la esquina derecha (ó una flecha apuntando hacia abajo justo a su derecha).
+    7. Elija la opción de "Run Java" para correr el sistema de manejo de consultas médicas.
 
 4. Uso
 
@@ -53,8 +68,8 @@ A continuación una descripción de cada opción en el Menú:
     0. Salir: al seleccionar esta opción, el sistema se va a cerrar.
 
 5. Configuración (si es necesario)
-> Detalles sobre las variables de ambiente, los archivos de configuración o los scripts de
-configuración.
+> Este proyecto no requiere variables de ambiente, archivos de configuración ni scripts de
+configuración. El programa funciona de forma independiente en la memoria utilizando solo Java estándar.
 
 6. Autores o agradecimientos
 > Desarrolladores:
