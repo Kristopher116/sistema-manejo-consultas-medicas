@@ -69,7 +69,7 @@ A continuación una descripción de cada opción en el Menú:
     0. Salir: al seleccionar esta opción, el sistema se va a cerrar.
 
 5. Configuración (si es necesario)
-> Este proyecto no requiere variables de ambiente, archivos de configuración ni scripts de
+Este proyecto no requiere variables de ambiente, archivos de configuración ni scripts de
 configuración. El programa funciona de forma independiente en la memoria utilizando solo Java estándar.
 
 6. Autores o agradecimientos
