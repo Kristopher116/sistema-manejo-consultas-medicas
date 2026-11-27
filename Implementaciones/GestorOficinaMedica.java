@@ -102,6 +102,18 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
         
         else {
             System.out.println("No se pudo agendar la cita.");
+
+            if(paciente == null){
+                System.out.println("No existe el paciente con ID " + idPaciente);
+            }
+
+            if(empleado == null){
+                System.out.println("No existe el empleado " + idDoctor);
+            }
+
+            if(empleado != null && !(empleado instanceof Doctor)){
+                System.out.println("El empleado no es un doctor.");
+            }
         }
     }
 
@@ -211,7 +223,7 @@ public class GestorOficinaMedica implements SistemaOficinaMedica {
         cita.setEstado("Completada");
         doctor.setDisponible(true);
 
-        VisitaMedica visita = new VisitaMedica(diagnostico, doctor.getNombre());
+        VisitaMedica visita = new VisitaMedica(diagnostico, doctor.getNombre(), signosVitales);
             
         LinkedList<VisitaMedica> historial = historiales.get(paciente.getId());
             
