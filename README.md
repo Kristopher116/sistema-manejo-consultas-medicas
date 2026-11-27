@@ -10,7 +10,8 @@ El Sistema de Manejo de Consultas Médicas es un programa desarrollado en Java p
 3. Instalación
  
     Prerrequisitos:
-    Antes de comenzar, debe tener instalado el Java Development Kit (JDK por sus siglas) que puede ser descargado en oracle.com. Para verificar si su dispositivo       lo tiene instalado:
+    Antes de comenzar, debe tener instalado el Java Development Kit (JDK por sus siglas) que puede ser descargado en oracle.com. 
+    Para verificar si su dispositivo lo tiene instalado:
  
     1. Acceda a la terminal de su computadora (aplicación de Command Prompt en Windows ó Terminal en Mac).
     2. Ingrese el comando "java -version" (si estará usando Visual Studio, se recomienda instalar el Extension Pack for Java).
@@ -23,7 +24,7 @@ El Sistema de Manejo de Consultas Médicas es un programa desarrollado en Java p
     4. Copie el enlace que tiene del repositorio en este campo y presione Enter. 
     5. Una vez el proyecto cargue en el IDE, abra el archivo Main.java.
     6. Localice el ícono triangular arriba en la esquina derecha (ó una flecha apuntando hacia abajo justo a su derecha).
-    7. Elija la opción de "Run Java" para correr el sistema de manejo de consultas médicas.
+    7. Elija la opción de "Run Java" en el Main.java para correr el Sistema de Manejo de Consultas Médicas.
 
 4. Uso
 
