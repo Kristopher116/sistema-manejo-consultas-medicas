@@ -74,7 +74,7 @@ Este proyecto no requiere variables de ambiente, archivos de configuración ni s
 configuración. El programa funciona de forma independiente en la memoria utilizando solo Java estándar.
 
 6. Autores o agradecimientos
-> Desarrolladores:
+Desarrolladores:
     Kristopher Suarez
     Karina Rivera
     Laura Ramos
