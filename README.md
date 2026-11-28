@@ -30,7 +30,7 @@ El Sistema de Manejo de Consultas Médicas es un programa desarrollado en Java p
 4. Uso
 
 Para ejecutar el programa, vaya a Main.java y corra el código. En el terminal aparecerá el Menú Principal. Seleccione una de las 12 opciones del menú escribiendo el número. 
-![alt text](image.png) 
+![alt text](image-17.png)
 IMPORTANTE: Luego de hacer su selección o introducir cualquier dato deberá oprimir ENTER para continuar con el programa.
 
 A continuación una descripción de cada opción en el Menú:
