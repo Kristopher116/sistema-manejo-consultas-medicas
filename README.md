@@ -75,6 +75,6 @@ configuración. El programa funciona de forma independiente en la memoria utiliz
 
 6. Autores o agradecimientos
 Desarrolladores:
-    Kristopher Suarez
-    Karina Rivera
+    Kristopher Suarez,
+    Karina Rivera,
     Laura Ramos
