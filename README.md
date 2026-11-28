@@ -34,13 +34,13 @@ Para ejecutar el programa, vaya a Main.java y corra el código. En el terminal a
 IMPORTANTE: Luego de hacer su selección o introducir cualquier dato deberá oprimir ENTER para continuar con el programa.
 
 A continuación una descripción de cada opción en el Menú:
-    1. Registrar al Paciente: esta opción registrará a un nuevo paciente al sistema y le asignará un identificador único al paciente (PAC-#). Introduzca el nombre y apellido del paciente, su edad e indique si es una emergencia. Conserve le ID del paciente generado para uso futuro.
+    1. Registrar al Paciente: esta opción registrará a un nuevo paciente al sistema y le asignará un identificador único al paciente (PAC-#). Introduzca el nombre y apellido del paciente, su edad e indique si es una emergencia. Conserve el ID del paciente generado para uso futuro.
     ![alt text](image-1.png) 
-    2. Reigstrar al Empleado: esta opción llevará registro de los empleados del centro oftalmológico. Deberá introducir los datos del empleado: nombre y apellidos, edad y posición en el centro. Si se registra un Doctor (opción 3) deberá seleccionar su especialidad (1-4): Oftalmólogo General, Oftalmólogo Pediátrico, Neurooftalmólogo o Retinólogo. Luego, presione ENTER y se guardarán los datos del empleado y se creará un identificador único para este empleado.
+    2. Registrar al Empleado: esta opción llevará registro de los empleados del centro oftalmológico. Deberá introducir los datos del empleado: nombre y apellidos, edad y posición en el centro. Si se registra un Doctor (opción 3) deberá seleccionar su especialidad (1-4): Oftalmólogo General, Oftalmólogo Pediátrico, Neurooftalmólogo o Retinólogo. Luego, presione ENTER y se guardarán los datos del empleado y se creará un identificador único para este empleado.
     ![alt text](image-2.png)  
     3. Agendar una cita: esta opción agendará una cita para un paciente registrado. Deberá introducir el ID del paciente, el ID del doctor, la fecha y la hora de la cita. El sistema generará un ID para la cita (CITA-#).
     ![alt text](image-3.png)  
-    Luego de agendar la cita el programa le presentará la informació de la cita que ingresó.
+    Luego de agendar la cita el programa le presentará la información de la cita que ingresó.
     ![alt text](image-4.png)  
     4. Cancelar una cita: seleccione esta opción para cancelar una cita existente. Importante: No se podrá cancelar una cita que esté en estado de "En Consulta" ni "Completada", solo se pueden cancelar citas en estado "Pendiente". Deberá introducir el ID de la cita generado en la opción 3.
     ![alt text](image-5.png)  
